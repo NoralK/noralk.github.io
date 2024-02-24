@@ -151,7 +151,7 @@ function highlightJsBadge(opt) {
       
         var hudText = document.querySelector(options.templateSelector).innerHTML;
 
-        var $codes = document.querySelectorAll("pre>code.hljs");        
+        var $codes = document.querySelectorAll("pre:not(.syntax)>code.hljs");        
         for (var index = 0; index < $codes.length; index++) {
             var el = $codes[index];
             if (el.parentElement.querySelector(".code-badge"))
@@ -245,7 +245,7 @@ function highlightJsBadge(opt) {
     
         // select the <code> tag and grab text
         //var $code = $origCode.querySelector("pre>code");
-        var $code = $origCode.querySelector("pre>.badgeCopy");
+        var $code = $origCode.querySelector("pre:not(.syntax)>.badgeCopy");
         var text = $code.textContent || $code.innerText;
         
         if (options.onBeforeCodeCopied)
