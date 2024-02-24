@@ -16,7 +16,7 @@
                 blockHasParent = blockParent && 'pre' === blockParent.nodeName.toLowerCase(),
                 lines = doc.createElement('code'),
                 numbers = [];
-            if (blockHasParent) {
+            if ( blockHasParent && !blockParent.classList.contains('skiplines') ) {
                 for (let i = 0, j = block.textContent.split(/\n/).length; i < j; ++i) {
                     numbers.push(i + 1);
                 }
