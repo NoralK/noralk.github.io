@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>StateFund.PowerShell Documentation</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.min.css" rel="stylesheet" charset="utf-8">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCoreDefault.min.css" rel="stylesheet" charset="utf-8">
+		<title>StateFund.PowerShell Documentation</title>
+        <link rel="apple-touch-icon" sizes="144x144" href="images/icons/apple-touch-icon.png">
+        <link rel="icon" type="images/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+        <link rel="icon" type="images/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+        <link rel="manifest" href="images/icons/site.webmanifest">
+        <link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="images/icons/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-config" content="images/icons/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js"></script>
+
+        <script src="https://noralk.github.io/js/highlightjs-badge.js"></script>
+        <script src="https://noralk.github.io/js/highlight.ln.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">     
+
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" charset="utf-8">
 				
 		<style>
-		  .syntaxhighlighter {
-		      overflow-y: hidden !important;
-		      overflow-x: auto !important;
-		  }
 		  pre {
 		      min-height: 30px;
 		  }
@@ -290,14 +303,15 @@
 					<div class="page-header">
 						<h2> Set-SF-PnPDefaultFeatures </h2>
 						<p>Sets the State Fund Default Features</p>
-						<p>`Set-SF-PnPDefaultFeatures` Sets the State <br>Fund Default Features based on the Site Template <br>via PnP PowerShell</p>
+						<p>**Set-SF-PnPDefaultFeatures** Sets the State <br>Fund Default Features based on the Site Template <br>via PnP PowerShell</p>
 					</div>
                         <div>
                         <h3> Syntax </h3>
                         </div>
 						<div class="panel panel-default">
                             <div class='panel-body'>
-<pre class="brush: ps">Set-SF-PnPDefaultFeatures [-URL] &lt;String&gt; [&lt;CommonParameters&gt;]</pre>
+<!--<div class="language-powershell">Set-SF-PnPDefaultFeatures [-URL] &lt;String&gt; [&lt;CommonParameters&gt;]</div>-->
+<pre class="syntax"><code class="language-powershell">Set-SF-PnPDefaultFeatures [-URL] &lt;String&gt; [&lt;CommonParameters&gt;]</code></pre>
                             </div>
 						</div>
 						<div>
@@ -331,8 +345,13 @@
 						<div class='panel panel-default'>
                             <div class='panel-body'>
 							    <strong>EXAMPLE 1</strong>
-<pre class="brush: ps">Set-SF-PnPDefaultFeatures -URL "https://statefund.sharepoint.com/sites/testcomm"</pre>
-							    <div></div>
+<div class="codeContainer"><pre><code class="language-powershell  badgeCopy">PS&gt; Set-SF-PnPDefaultFeatures -URL "https://statefund.sharepoint.com/sites/testcomm"
+
+    $var = 'Test'
+    Set-Something -Arg1 $var
+</code></pre><div>
+Invoke the Do-Something cmdlet with the $var variable</div>
+</div>
                             </div>
 						</div>
                         <p class='pull-right'><a onclick='document.body.scrollTop = document.documentElement.scrollTop = 0;' style='cursor: pointer;'>Top of page</a>
@@ -456,8 +475,6 @@
 	</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js" charset="utf-8"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.min.js" charset="utf-8"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushPowerShell.min.js" charset="utf-8"></script>
 	<script>
 		$(document).ready(function() {
 			$(".toggle_container").hide();
@@ -481,10 +498,43 @@
 				window.scrollTo(0, 0);
 				return false;
 			});
-			SyntaxHighlighter.defaults['toolbar'] = false;
-			SyntaxHighlighter.defaults['gutter'] = false;
-			SyntaxHighlighter.all();
-			
+///
+///
+
+// first, find all the div.code blocks
+//document.querySelectorAll('div.language-powershell').forEach(el => {
+document.querySelectorAll('pre.syntax>code').forEach(el => {
+  // then highlight each
+  hljs.highlightElement(el);
+});
+
+   setTimeout(function () {
+        var pres = document.querySelectorAll("pre>.badgeCopy");
+        for (var i = 0; i < pres.length; i++) {
+            hljs.highlightElement(pres[i]);
+        }
+        var options = {
+            contentSelector: ".codeContainer",
+            // Delay in ms used for `setTimeout` before badging is applied
+            // Use if you need to time highlighting and badge application
+            // since the badges need to be applied afterwards.
+            // 0 - direct execution (ie. you handle timing
+            loadDelay:0,
+
+            // CSS class(es) used to render the copy icon.
+            copyIconClass: "fa fa-copy",
+            // CSS class(es) used to render the done icon.
+            checkIconClass: "fa fa-check text-success",
+            // intercept text copying - passed in text return text out
+            onBeforeCodeCopied: function(text) {                
+                //text = "$$$ " + text;
+                return text;
+            }
+        };
+        window.highlightJsBadge(options);
+    },10);
+///
+///			
 			$('#searchList').btsListFilter('#searchinput', {itemChild: 'a', initial: false, resetOnBlur: true});
             
             $(document).keyup(function( e ) {
@@ -497,26 +547,27 @@
                 $('#searchinput').blur();
             });
 		});
+
 	</script>
     <!-- bootstrap-list-filter.min.js - removed as external resource and added as content -->
     <script>
-    /* 
-     * bootstrap-list-filter v0.1.7 - 2015-03-30 
-     * 
-     * Copyright 2015 Stefano Cudini 
-     * stefano.cudini@gmail.com 
-     * http://labs.easyblog.it/ 
-     * 
-     * Licensed under the MIT license. 
-     * 
-     * Demos: 
-     * http://labs.easyblog.it/bootstrap-list-filter/ 
-     * 
-     * Source: 
-     * git@github.com:stefanocudini/bootstrap-list-filter.git 
-     * 
-     */
-    !function(a){a.fn.btsListFilter=function(b,c){function d(a,b){return a.replace(/\{ *([\w_]+) *\}/g,function(a,c){return b[c]||""})}function e(a,b){var c;return b=b||300,function(){var d=this,e=arguments;clearTimeout(c),c=setTimeout(function(){a.apply(d,Array.prototype.slice.call(e))},b)}}var f,g=this,h=a(this),i=a(b),j=h;return c=a.extend({delay:300,minLength:1,initial:!0,eventKey:"keyup",resetOnBlur:!0,sourceData:null,sourceTmpl:'<a class="list-group-item" href="#"><span>{title}</span></a>',sourceNode:function(a){return d(c.sourceTmpl,a)},emptyNode:function(){return'<a class="list-group-item well" href="#"><span>No Results</span></a>'},itemEl:".list-group-item",itemChild:null,itemFilter:function(b,d){d=d&&d.replace(new RegExp("[({[^.$*+?\\]})]","g"),"");var e=a(b).text(),f=c.initial?"^":"",g=new RegExp(f+d,"i");return g.test(e)}},c),i.on(c.eventKey,e(function(){var b=a(this).val();c.itemEl&&(j=h.find(c.itemEl)),c.itemChild&&(j=j.find(c.itemChild));var d=j.filter(function(){return c.itemFilter.call(g,this,b)}),e=j.not(d);c.itemChild&&(d=d.parents(c.itemEl),e=e.parents(c.itemEl).hide()),""!==b&&b.length>=c.minLength?(d.show(),e.hide(),"function"===a.type(c.sourceData)?(d.hide(),e.hide(),f&&(a.isFunction(f.abort)?f.abort():a.isFunction(f.stop)&&f.stop()),f=c.sourceData.call(g,b,function(b){if(f=null,d.hide(),e.hide(),h.find(".bts-dynamic-item").remove(),b&&0!==b.length)for(var i in b)a(c.sourceNode.call(g,b[i])).addClass("bts-dynamic-item").appendTo(h);else a(c.emptyNode.call(g)).addClass("bts-dynamic-item").appendTo(h)})):0===d.length&&a(c.emptyNode.call(g)).addClass("bts-dynamic-item").appendTo(h)):(d.show(),e.show(),h.find(".bts-dynamic-item").remove())},c.delay)),c.resetOnBlur&&i.on("blur",function(){a(this).val("").trigger(c.eventKey)}),h}}(jQuery);
+/* 
+ * bootstrap-list-filter v0.3.2 - 2016-10-26 
+ * 
+ * Copyright 2016 Stefano Cudini 
+ * stefano.cudini@gmail.com 
+ * https://opengeo.tech/ 
+ * 
+ * Licensed under the MIT license. 
+ * 
+ * Demos: 
+ * https://opengeo.tech/bootstrap-list-filter/ 
+ * 
+ * Source: 
+ * git@github.com:stefanocudini/bootstrap-list-filter.git 
+ * 
+ */
+!function(a){a.fn.btsListFilter=function(b,c){"use strict";function d(a,b){return a.replace(/\{ *([\w_]+) *\}/g,function(a,c){return b[c]||""})}function e(b,d){d=d&&d.replace(new RegExp("[({[^.$*+?\\]})]","g"),"");var e=a(b).text(),f=c.initial?"^":"",g=new RegExp(f+d,c.casesensitive?"":"i");return g.test(e)}function f(a,b){var c;return b=b||300,function(){var d=this,e=arguments;clearTimeout(c),c=setTimeout(function(){a.apply(d,Array.prototype.slice.call(e))},b)}}var g,h,i=this,j=a(this),k=a(b),l=j;return c=a.extend({delay:300,minLength:1,initial:!0,casesensitive:!1,eventKey:"keyup",resetOnBlur:!0,sourceData:null,sourceTmpl:'<a class="list-group-item" href="#"><span>{title}</span></a>',sourceNode:function(a){return d(c.sourceTmpl,a)},emptyNode:function(a){return'<a class="list-group-item well" href="#"><span>No Results</span></a>'},cancelNode:function(){return'<span class="btn glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>'},loadingClass:"bts-loading-list",itemClassTmp:"bts-dynamic-item",itemEl:".list-group-item",itemChild:null,itemFilter:e},c),i.reset=function(){k.val("").trigger(c.eventKey)},a.isFunction(c.cancelNode)&&(g=a(c.cancelNode.call(i)).hide(),k.after(g),k.parents(".form-group").addClass("has-feedback"),k.prev().is(".control-label")||g.css({top:0}),g.css({"pointer-events":"auto"}),g.on("click",i.reset)),k.on(c.eventKey,f(function(b){var d=a(this).val();c.itemEl&&(l=j.find(c.itemEl)),c.itemChild&&(l=l.find(c.itemChild));var e=l.filter(function(){return c.itemFilter.call(i,this,d)}),f=l.not(e);c.itemChild&&(e=e.parents(c.itemEl),f=f.parents(c.itemEl).hide()),""!==d&&d.length>=c.minLength?(e.show(),f.hide(),g.show(),"function"===a.type(c.sourceData)?(e.hide(),f.hide(),h&&(a.isFunction(h.abort)?h.abort():a.isFunction(h.stop)&&h.stop()),j.addClass(c.loadingClass),h=c.sourceData.call(i,d,function(b){if(h=null,e.hide(),f.hide(),j.find("."+c.itemClassTmp).remove(),b&&0!==b.length)for(var g in b)a(c.sourceNode.call(i,b[g])).addClass(c.itemClassTmp).appendTo(j);else a(c.emptyNode.call(i,d)).addClass(c.itemClassTmp).appendTo(j);j.removeClass(c.loadingClass)})):(j.find("."+c.itemClassTmp).remove(),0===e.length&&a(c.emptyNode.call(i,d)).addClass(c.itemClassTmp).appendTo(j))):(e.show(),f.show(),g.hide(),j.find("."+c.itemClassTmp).remove())},c.delay)),c.resetOnBlur&&k.on("blur",function(a){i.reset()}),j}}(jQuery);
 </script>
 	</body>
 </html>
