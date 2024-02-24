@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js"></script>
+    <script src="js/highlightjs-badge.js"></script>
+    <script src="js/highlight.ln.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">     
+    <style>
+        .code-badge {
+            top: initial !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <pre>
+            <code class="language-powershell badgeCopy">
+                PS> Set-SF-PnPDefaultFeatures -URL "https://statefund.sharepoint.com/sites/testcomm"
+
+                $var = 'Test'
+                Set-Something -Arg1 $var
+            </code>
+        </pre>
+    </div>
+    <script>
+    setTimeout(function () {
+        //var pres = document.querySelectorAll("pre>code");
+        var pres = document.querySelectorAll("pre>.badgeCopy");
+        for (var i = 0; i < pres.length; i++) {
+            hljs.highlightBlock(pres[i]);
+        }
+        var options = {
+            contentSelector: ".container",
+            //contentSelector: "pre",
+            // Delay in ms used for `setTimeout` before badging is applied
+            // Use if you need to time highlighting and badge application
+            // since the badges need to be applied afterwards.
+            // 0 - direct execution (ie. you handle timing
+            loadDelay:0,
+
+            // CSS class(es) used to render the copy icon.
+            copyIconClass: "fa fa-copy",
+            // CSS class(es) used to render the done icon.
+            checkIconClass: "fa fa-check text-success",
+            // intercept text copying - passed in text return text out
+            onBeforeCodeCopied: function(text) {                
+                //text = "$$$ " + text;
+                return text;
+            }
+        };
+        window.highlightJsBadge(options);
+    },10);
+    </script>
+</body>
+</html>
