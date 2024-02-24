@@ -35,7 +35,7 @@
         //var pres = document.querySelectorAll("pre>code");
         var pres = document.querySelectorAll("pre>.badgeCopy");
         for (var i = 0; i < pres.length; i++) {
-            hljs.highlightBlock(pres[i]);
+            hljs.highlightElement(pres[i]);
         }
         var options = {
             contentSelector: ".container",
